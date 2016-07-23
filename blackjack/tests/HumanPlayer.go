@@ -1,13 +1,17 @@
 package tests
-import{
+import(
 	"fmt"
-}
+)
 type HumanPlayer struct{
-	isBusted bool
+	IsBusted bool
+	Cards []Card
 }
 func (h *HumanPlayer)plays(){
 	fmt.Println("Human Played")
 }
 func (h *HumanPlayer)isBusted() bool{
-	return h.bool
+	return h.IsBusted
+}
+func (h *HumanPlayer)GetCards() []Card{
+	return h.Cards
 }

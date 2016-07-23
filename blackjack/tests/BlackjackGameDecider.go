@@ -1,12 +1,22 @@
 package tests
+const MAX_VALUE=21
 type BlackJackGameDecider struct{
-	Players []Player
+	HumanPlayer,ComputerPlayer Player
 }
 func (b *BlackJackGameDecider) Whowins() Player{
-	for _,player :=range b.Players{
-		if player.isBusted()==false {
-			return player
-		}
+	computerScore:=getTotalScore(ComputerPlayer.GetCards())
+	humanScore:=getTotalScore(HumanPlayer.GetCards())
+	if computerScore>humanScore{
+		return ComputerPlayer
+	}else if humanScore>computerScore{
+		return HumanPlayer
+	}else{
+		return nil
 	}
-	return nil
+}
+func getTotalScore(cards []Card)int{
+	score:=0;
+	for _,card:= range cards{
+		score+=card.GetValue()
+	}
 }
