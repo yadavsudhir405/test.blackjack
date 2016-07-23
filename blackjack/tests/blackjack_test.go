@@ -4,14 +4,15 @@ import "testing"
 
 func Test(t *testing.T) {
 	humanPlayer:=new(HumanPlayer)
+	computerPlayer:=new(ComputerPlayer)
 	humanPlayer.isBusted=true
+	computerPlayer.isBusted=false
 	blackjackGameDecider:=&blackjackGameDecider{
-		Player:humanPlayer
+		Players:[]Player{&computerPlayer,&humanPlayer}
 	}
 	winner := blackjackGameDecider.Whowins()
-
 	if result != nil {
-		t.Errorf("Expected winner, is  %d", winner)
+		t.Errorf("Expected winner, is  %d", nil)
 	}
 }
 
